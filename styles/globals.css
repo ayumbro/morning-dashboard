@@ -127,7 +127,7 @@ div.main-container .weather-container .weather-warning-group .specialWxTips {
 }
 div.main-container .weather-container .weather-warning-group .warningMessage span,
 div.main-container .weather-container .weather-warning-group .specialWxTips span {
-  font-size: 0.9vw;
+  font-size: 1.4vw;
   padding: 0.5vw 1vw;
   line-height: 1.3vw;
   text-align: justify;
@@ -172,6 +172,7 @@ div.main-container .news-container li {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-bottom: 0.5rem;
 }
 div.main-container .news-container li span {
   padding-right: 2vw;
