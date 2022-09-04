@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: ["www.hko.gov.hk"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

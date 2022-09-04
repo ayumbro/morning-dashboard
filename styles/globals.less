@@ -1,0 +1,214 @@
+@import (css, once)
+  "https://stcss.buildsth.com/tailwindcss/latest/tailwind-base.css";
+@import (less, reference)
+  "https://stcss.buildsth.com/tailwindcss/latest/tailwind-utilities.less";
+@import (less, reference) "https://stcss.buildsth.com/stcss.less";
+
+// Need to update @breakpoints @below @above if new breakpoints added
+@xs: 480px;
+@sm: 640px;
+@md: 768px;
+@lg: 1024px;
+@xl: 1280px;
+@2xl: 1536px;
+
+@vpMax: 1220px; // Max viewport content width
+@vpPadX: 2rem; // Default padding-x for viewport size smaller than @vpMax
+
+@pri: #f00000; // Primary color
+@sec: #00f000; // Secondary color
+@ter: #0000f0; // Tertiary color
+
+@fontFamily: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+* {
+  overflow: hidden;
+}
+:root {
+  font-size: 62.5%;
+}
+div.main-container {
+  font-size: 1.6rem;
+  width: 100vw;
+  height: 100vh;
+  .flex();
+  .flex-wrap();
+  .flex-col();
+
+  & > section {
+    flex-shrink: 0;
+
+    > div {
+      padding: 0.8vw 1.2vw;
+    }
+  }
+  section.top-left {
+    width: 60vw;
+    height: 40vh;
+    .bg-red-100();
+  }
+  section.top-right {
+    width: 40vw;
+    height: 55vh;
+    .bg-green-100();
+  }
+  section.bottom-left {
+    width: 60vw;
+    height: 60vh;
+    .bg-blue-100();
+  }
+  section.bottom-right {
+    width: 40vw;
+    height: 45vh;
+    .bg-yellow-100();
+  }
+
+  h1.section-title {
+    font-size: 1.6vw;
+    font-weight: 600;
+    .pb-4();
+  }
+  .datetime-container {
+    .flex();
+    .flex-col();
+    .flex-nowrap();
+
+    .time {
+      font-size: 10vw;
+      padding-left: 1vw;
+      .leading-snug();
+    }
+    .date {
+      font-size: 3vw;
+      padding-left: 2vw;
+    }
+  }
+
+  .weather-container {
+    .h-full();
+    .flex();
+    .flex-col();
+    .gap-10();
+
+    .weather-warning-group {
+      .flex();
+      .flex-wrap();
+      .gap-3();
+
+      .warningMessage,
+      .specialWxTips {
+        .contents();
+
+        span {
+          font-size: 0.9vw;
+          padding: 0.5vw 1vw;
+          line-height: 1.3vw;
+          .text-justify();
+          .whitespace-normal();
+        }
+      }
+    }
+    .weather-local-group {
+      padding-block: 1vh;
+      .flex();
+      .flex-nowrap();
+      .justify-around();
+
+      .weather-icon {
+        width: 16%;
+      }
+      .weather-local-info-group {
+        .flex();
+        .flex-col();
+        .justify-between();
+
+        p {
+          font-size: 1.5vw;
+          .font-semibold();
+
+          &.area {
+            font-size: 2vw;
+          }
+        }
+      }
+    }
+
+    .weather-forecast-group {
+      p {
+        font-size: 1vw;
+        .font-semibold();
+      }
+      .forecastPeriod {
+        border-bottom: 0.15vw solid black;
+        .inline-block();
+      }
+      .forecastDesc {
+        padding-top: 1.2vh;
+        .italic();
+      }
+    }
+  }
+
+  .news-container li {
+    list-style: none;
+    font-size: 1vw;
+
+    span {
+      padding-right: 3vw;
+    }
+  }
+
+  .bus-status-container {
+    .space-y-8();
+
+    //.route-stop-name {
+    //}
+    .bus-routes {
+      .flex();
+      .justify-evenly();
+
+      .route {
+        width: 36%;
+        .space-y-8();
+
+        .route-number {
+          font-size: 3.2vw;
+          border-radius: 3vw;
+          border-width: 0.3vw;
+          height: 6vw;
+          .font-medium();
+          .bg-gray-50();
+          .aspect-square();
+          .border-orange-500();
+          .text-orange-500();
+          .text-center();
+          .leading-relaxed();
+          .mx-auto();
+        }
+
+        .route-eta {
+          p {
+            .leading-none();
+            .text-center();
+            font-size: 1.2vw;
+
+            span {
+              font-size: 2.2vw;
+            }
+          }
+          &-1 {
+            .text-red-600();
+          }
+          &-2 {
+            .text-yellow-600();
+          }
+          &-3 {
+            .text-green-600();
+          }
+        }
+      }
+    }
+  }
+}

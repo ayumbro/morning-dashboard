@@ -1,26 +1,230 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import "https://stcss.buildsth.com/tailwindcss/latest/tailwind-base.css";
+.max-w-screen-xs {
+  max-width: 480px;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
+@media (min-width: 480px) {
+  .container {
+    max-width: 480px;
+  }
 }
-
+.max-w-screen-sm {
+  max-width: 640px;
+}
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+.max-w-screen-md {
+  max-width: 768px;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+.max-w-screen-lg {
+  max-width: 1024px;
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+.max-w-screen-xl {
+  max-width: 1280px;
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+.max-w-screen-2xl {
+  max-width: 1536px;
+}
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
 * {
-  box-sizing: border-box;
+  overflow: hidden;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+:root {
+  font-size: 62.5%;
+}
+div.main-container {
+  font-size: 1.6rem;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+div.main-container > section {
+  flex-shrink: 0;
+}
+div.main-container > section > div {
+  padding: 0.8vw 1.2vw;
+}
+div.main-container section.top-left {
+  width: 60vw;
+  height: 40vh;
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+div.main-container section.top-right {
+  width: 40vw;
+  height: 55vh;
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+}
+div.main-container section.bottom-left {
+  width: 60vw;
+  height: 60vh;
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+div.main-container section.bottom-right {
+  width: 40vw;
+  height: 45vh;
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+}
+div.main-container h1.section-title {
+  font-size: 1.6vw;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+div.main-container .datetime-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+div.main-container .datetime-container .time {
+  font-size: 10vw;
+  padding-left: 1vw;
+  line-height: 1.375;
+}
+div.main-container .datetime-container .date {
+  font-size: 3vw;
+  padding-left: 2vw;
+}
+div.main-container .weather-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+div.main-container .weather-container .weather-warning-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+div.main-container .weather-container .weather-warning-group .warningMessage,
+div.main-container .weather-container .weather-warning-group .specialWxTips {
+  display: contents;
+}
+div.main-container .weather-container .weather-warning-group .warningMessage span,
+div.main-container .weather-container .weather-warning-group .specialWxTips span {
+  font-size: 0.9vw;
+  padding: 0.5vw 1vw;
+  line-height: 1.3vw;
+  text-align: justify;
+  white-space: normal;
+}
+div.main-container .weather-container .weather-local-group {
+  padding-block: 1vh;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+div.main-container .weather-container .weather-local-group .weather-icon {
+  width: 16%;
+}
+div.main-container .weather-container .weather-local-group .weather-local-info-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+div.main-container .weather-container .weather-local-group .weather-local-info-group p {
+  font-size: 1.5vw;
+  font-weight: 600;
+}
+div.main-container .weather-container .weather-local-group .weather-local-info-group p.area {
+  font-size: 2vw;
+}
+div.main-container .weather-container .weather-forecast-group p {
+  font-size: 1vw;
+  font-weight: 600;
+}
+div.main-container .weather-container .weather-forecast-group .forecastPeriod {
+  border-bottom: 0.15vw solid black;
+  display: inline-block;
+}
+div.main-container .weather-container .weather-forecast-group .forecastDesc {
+  padding-top: 1.2vh;
+  font-style: italic;
+}
+div.main-container .news-container li {
+  list-style: none;
+  font-size: 1vw;
+}
+div.main-container .news-container li span {
+  padding-right: 3vw;
+}
+div.main-container .bus-status-container > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+div.main-container .bus-status-container .bus-routes {
+  display: flex;
+  justify-content: space-evenly;
+}
+div.main-container .bus-status-container .bus-routes .route {
+  width: 36%;
+}
+div.main-container .bus-status-container .bus-routes .route > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+div.main-container .bus-status-container .bus-routes .route .route-number {
+  font-size: 3.2vw;
+  border-radius: 3vw;
+  border-width: 0.3vw;
+  height: 6vw;
+  font-weight: 500;
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  aspect-ratio: 1 / 1;
+  --tw-border-opacity: 1;
+  border-color: rgb(249 115 22 / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity));
+  text-align: center;
+  line-height: 1.625;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.main-container .bus-status-container .bus-routes .route .route-eta p {
+  line-height: 1;
+  text-align: center;
+  font-size: 1.2vw;
+}
+div.main-container .bus-status-container .bus-routes .route .route-eta p span {
+  font-size: 2.2vw;
+}
+div.main-container .bus-status-container .bus-routes .route .route-eta-1 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+div.main-container .bus-status-container .bus-routes .route .route-eta-2 {
+  --tw-text-opacity: 1;
+  color: rgb(202 138 4 / var(--tw-text-opacity));
+}
+div.main-container .bus-status-container .bus-routes .route .route-eta-3 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
 }
