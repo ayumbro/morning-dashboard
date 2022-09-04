@@ -216,15 +216,29 @@ const Dashboard: NextPage = () => {
 
   useEffect(() => {
     setTime(() => {
-      return <Clock className="time" format={"HH:mm:ss"} ticking={true} />;
+      return (
+        <Clock
+          className="time"
+          format={"HH:mm:ss"}
+          ticking={true}
+          timezone={"Asia/Hong_Kong"}
+        />
+      );
     });
     setDate(function () {
-      return <Clock className="date" format={"YYYY年MM月DD日（）"} />;
+      return (
+        <Clock
+          className="date"
+          format={"YYYY年MM月DD日（）"}
+          timezone={"Asia/Hong_Kong"}
+        />
+      );
     });
   }, []);
   useEffect(() => {
     const dayOfWeek = new Date().toLocaleString("zh-HK", {
       weekday: "narrow",
+      timeZone: "Asia/Hong_Kong",
     });
     const text = document.querySelector(
       ".datetime-container .date"
@@ -237,9 +251,9 @@ const Dashboard: NextPage = () => {
   const newsQuery = useQuery(
     ["newsData"],
     () =>
-      fetch("http://rthk9.rthk.hk/rthk/news/rss/c_expressnews_clocal.xml").then(
-        (res) => res.text()
-      ),
+      fetch(
+        "https://rthk9.rthk.hk/rthk/news/rss/c_expressnews_clocal.xml"
+      ).then((res) => res.text()),
     {
       refetchIntervalInBackground: true,
       refetchInterval: 1000 * 60 * 3,
