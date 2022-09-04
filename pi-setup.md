@@ -8,17 +8,19 @@ Setup Hostname(morning-dashboard.local), SSH Login and Wifi credentials, Timezon
 Burn the image
 
 ssh into morning-dashboard.local
+
+```bash
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y --no-install-recommends xserver-xorg-video-all \
  xserver-xorg-input-all xserver-xorg-core xinit x11-xserver-utils \
  chromium-browser unclutter
-
 #sudo apt install fonts-arphic-ukai fonts-arphic-uming
 sudo apt install fonts-noto-cjk
+```
 
+```bash
 sudo raspi-confi
-
 # System Options > Boot Options > Console Autologin
 
 vi /home/pi/.bash_profile
@@ -50,14 +52,20 @@ chromium-browser https://urls.hk/md-for-my-pi \
  --disk-cache-dir=/dev/null \
  --overscroll-history-navigation=0 \
  --disable-pinch
-
 # unclutter - remove idle cursor image from screen
+```
 
+```bash
 wpa_cli -i wlan0 add_network
-
 # return added network id for setting
-
-wpa_cli -i wlan0 set_network 1 ssid '"***REMOVED***"'
-wpa_cli -i wlan0 set_network 1 psk '"***REMOVED***"'
+wpa_cli -i wlan0 set_network 1 ssid '"XXX"'
+wpa_cli -i wlan0 set_network 1 psk '"XXX"'
 wpa_cli -i wlan0 enable_network 1
 wpa_cli -i wlan0 save_config
+```
+
+```bash
+crontab -e
+5-55/10 * * * * xset -display :0.0 dpms force off
+*/10 * * * * xset -display :0.0 dpms force on
+```

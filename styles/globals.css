@@ -156,11 +156,11 @@ div.main-container .weather-container .weather-local-group .weather-local-info-g
 }
 div.main-container .weather-container .weather-forecast-group p {
   font-size: 1.4vw;
-  font-weight: 600;
 }
 div.main-container .weather-container .weather-forecast-group .forecastPeriod {
   border-bottom: 0.15vw solid black;
   display: inline-block;
+  font-weight: 600;
 }
 div.main-container .weather-container .weather-forecast-group .forecastDesc {
   padding-top: 1.2vh;
@@ -169,9 +169,12 @@ div.main-container .weather-container .weather-forecast-group .forecastDesc {
 div.main-container .news-container li {
   list-style: none;
   font-size: 1.3vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 div.main-container .news-container li span {
-  padding-right: 2.5vw;
+  padding-right: 2vw;
 }
 div.main-container .bus-status-container > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;

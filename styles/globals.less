@@ -138,11 +138,11 @@ div.main-container {
     .weather-forecast-group {
       p {
         font-size: 1.4vw;
-        .font-semibold();
       }
       .forecastPeriod {
         border-bottom: 0.15vw solid black;
         .inline-block();
+        .font-semibold();
       }
       .forecastDesc {
         padding-top: 1.2vh;
@@ -154,9 +154,10 @@ div.main-container {
   .news-container li {
     list-style: none;
     font-size: 1.3vw;
+    .truncate();
 
     span {
-      padding-right: 2.5vw;
+      padding-right: 2vw;
     }
   }
 
