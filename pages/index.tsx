@@ -99,7 +99,8 @@ const getWeatherData = (weatherData: Weather | null): ReactElement => {
         <span className="updateTime">{updateTime} 更新</span>
       </Text>
       <div className="weather-warning-group">
-        {weatherData.warningMessage[0] !== "" &&
+        {weatherData.warningMessage &&
+          weatherData.warningMessage[0] !== "" &&
           weatherData.warningMessage.map((msg) => {
             return (
               <Badge

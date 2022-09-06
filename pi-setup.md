@@ -56,12 +56,8 @@ chromium-browser https://urls.hk/md-for-my-pi \
 ```
 
 ```bash
-wpa_cli -i wlan0 add_network
-# return added network id for setting
-wpa_cli -i wlan0 set_network 1 ssid '"XXX"'
-wpa_cli -i wlan0 set_network 1 psk '"XXX"'
-wpa_cli -i wlan0 enable_network 1
-wpa_cli -i wlan0 save_config
+wpa_passphrase [ ssid ] [ passphrase ] # ssid case sensitive
+# add the return to /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
 ```bash
