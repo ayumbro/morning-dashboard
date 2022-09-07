@@ -231,6 +231,7 @@ const Dashboard: NextPage = () => {
         <Clock
           className="date"
           format={"YYYY年MM月DD日（）"}
+          ticking={true}
           timezone={"Asia/Hong_Kong"}
         />
       );
