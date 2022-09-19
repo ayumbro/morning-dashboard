@@ -211,6 +211,18 @@ const getBusStopData = (
   );
 };
 
+const handleWeekday = () => {
+  const dayOfWeek = new Date().toLocaleString("zh-HK", {
+    weekday: "narrow",
+    timeZone: "Asia/Hong_Kong",
+  });
+  const text = document.querySelector(
+    ".datetime-container .date"
+  ) as HTMLElement | null;
+
+  if (text) text.innerText = text.innerText.replace(/（）/, `（${dayOfWeek}）`);
+};
+
 const Dashboard: NextPage = () => {
   const [time, setTime] = useState<ReactElement | null>(null);
   const [date, setDate] = useState<ReactElement | null>(null);
@@ -233,22 +245,11 @@ const Dashboard: NextPage = () => {
           format={"YYYY年MM月DD日（）"}
           ticking={true}
           timezone={"Asia/Hong_Kong"}
+          onChange={handleWeekday}
         />
       );
     });
   }, []);
-  useEffect(() => {
-    const dayOfWeek = new Date().toLocaleString("zh-HK", {
-      weekday: "narrow",
-      timeZone: "Asia/Hong_Kong",
-    });
-    const text = document.querySelector(
-      ".datetime-container .date"
-    ) as HTMLElement | null;
-
-    if (text)
-      text.innerText = text.innerText.replace(/（）/, `（${dayOfWeek}）`);
-  }, [date]);
 
   const newsQuery = useQuery(
     ["newsData"],
